@@ -5,4 +5,10 @@ Rails.application.routes.draw do
   resources :user do
     resources :tasks
   end
+
+  namespace :api do
+    namespace :v1  do
+      resources :tokens, :only => [:create, :destroy]
+    end
+  end
 end

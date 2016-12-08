@@ -1,4 +1,7 @@
 class TasksController < ApplicationController
+  # Allow cancan to authorize things.
+  load_and_authorize_resource
+
   def create
     @user = User.find(params[:user_id])
     @task = User.tasks.new(task_params)

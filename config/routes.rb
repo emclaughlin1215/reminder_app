@@ -1,14 +1,15 @@
 Rails.application.routes.draw do
-  devise_for :users
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-
-  resources :user do
-    resources :tasks
-  end
+  # Need this here to get the helpers working
+  devise_for :user
 
   namespace :api do
     namespace :v1  do
-      resources :tokens, :only => [:create, :destroy]
+      # Need this here to make the user routes be in the right place
+      devise_for :users
+      # To do subroutes for each user
+      resources :user do
+        resources :tasks
+      end
     end
   end
 end

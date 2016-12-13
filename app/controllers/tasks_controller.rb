@@ -22,7 +22,7 @@ class TasksController < ApplicationController
 
   def destroy
     @user = User.find(params[:user_id])
-    @task = @user.tassk.find(params[:id])
+    @task = @user.task.find(params[:id])
     if @task.destroy
     else
       # TODO: Send back some sort of error.

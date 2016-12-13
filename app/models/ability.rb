@@ -33,15 +33,17 @@ class Ability
     # allowed
     alias_action :create, :read, :update, :destroy, :to => :crud
 
-    if user.nil? do
+    if user.nil?
       can :create, User
     else
       # Users can only RUD tasks if they own them
       can :crud, Task, :user_id => user.id
+      # Users can create Tasks regardless of the user ID
       can :create, Task
 
       # Users can only RUD themselves
       can :crud, User, :user_id => user.id
+      # Users who are signed in can't create new users
       cannot :create, User
     end
   end

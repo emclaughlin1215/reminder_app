@@ -31,7 +31,7 @@ Rails.application.configure do
 
   # TODO: Set this up right or remove
   # Set a default URL for devise's mailer to use
-  # config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 
   # Tell Action Mailer not to deliver emails to the real world.
   # The :test delivery method accumulates sent emails in the
